@@ -1,9 +1,9 @@
-Tornado Framework Overview
+**Tornado Framework Overview**
 
 **Tornado** is a **Python web framework** and **asynchronous networking library** developed by **FriendFeed**, which was later acquired by Facebook. It is designed to handle **high-performance, concurrent applications** — particularly useful for **real-time web services**, such as live updates, chat apps, or streaming APIs.
 
 ---
-✅ Key Features of Tornado
+**✅ Key Features of Tornado**
 
 | Feature                           | Description                                                                   |
 | --------------------------------- | ----------------------------------------------------------------------------- |
@@ -45,7 +45,14 @@ if __name__ == "__main__":
     app = make_app()
     app.listen(8888)
     print("Server running on http://localhost:8888")
-    tornado.ioloop.IOLoop.current().start()
+
+
+    try:
+        tornado.ioloop.IOLoop.current().start()
+    except KeyboardInterrupt:
+        print("Shutting down gracefully......")
+    finally:
+        tornado.ioloop.IOLoop.current().stop()
 ```
 
 ---
